@@ -3,7 +3,8 @@ resource "aws_security_group_rule" "ingress_ssh" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  #cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["72.183.38.152/32"]
   security_group_id = aws_security_group.allow_http_ssh.id
 }
 
@@ -12,7 +13,8 @@ resource "aws_security_group_rule" "ingress_http" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  #cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["72.183.38.152/32"]
   security_group_id = aws_security_group.allow_http_ssh.id
 }
 
@@ -21,6 +23,7 @@ resource "aws_security_group_rule" "egress_allow_all" {
   to_port           = 0
   protocol          = "-1"
   from_port         = 0
-  cidr_blocks       = ["0.0.0.0/0"]
+  #cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["72.183.38.152/32"]
   security_group_id = aws_security_group.allow_http_ssh.id
 }
