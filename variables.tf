@@ -1,23 +1,3 @@
-variable "inst_type" {
-  description = "Multiple instance types"
-  type        = list(string)
-  default     = ["t3.micro", "t2.small", "t2.medium"]
-}
-variable "inst_count" {
-  description = "No of EC2 instances to be launched"
-  type        = number
-  default     = 1
-}
-variable "ec2_instance_tags" {
-  description = "Default tags to be used"
-  type        = map(string)
-  default = {
-    "Name"        = "webapp"
-    "Environment" = "Dev"
-    "Type"        = "Application"
-  }
-}
-
 variable "image_id" {
   type        = string
   description = "The id of the machine image (AMI) to use for the server."
@@ -30,9 +10,31 @@ variable "image_id" {
   }
 }
 
+variable "inst_type" {
+  description = "Multiple instance types"
+  type        = list(string)
+  default     = ["t3.micro", "t2.small", "t2.medium"]
+}
+
+variable "inst_count" {
+  description = "No of EC2 instances to be launched"
+  type        = number
+  default     = 1
+}
+
 variable "az_name" {
   description = "Provide AZ name as per Region to launch Instance"
   default = "us-east-2a"
+}
+
+variable "ec2_instance_tags" {
+  description = "Default tags to be used"
+  type        = map(string)
+  default = {
+    "Name"        = "webapp"
+    "Environment" = "Dev"
+    "Type"        = "Application"
+  }
 }
 
 variable "keyname" {
