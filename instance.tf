@@ -6,6 +6,6 @@ resource "aws_instance" "web" {
   
   #associate_public_ip_address = true
   #key_name                    = var.keyname
-  #vpc_security_group_ids      = [aws_security_group.allow_http_ssh.id]
+  vpc_security_group_ids      = [aws_security_group.allow_http_ssh.id]
   #tags = var.ec2_instance_tags
 }
